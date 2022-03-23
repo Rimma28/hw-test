@@ -12,7 +12,6 @@ var ErrInvalidString = errors.New("invalid string")
 func Unpack(str string) (string, error) {
 	var result string
 	var previoseLetter string
-	var test string
 	var count int
 	for _, ch := range str {
 		if unicode.IsDigit(ch) {
@@ -22,17 +21,16 @@ func Unpack(str string) (string, error) {
 			}
 			count, _ = strconv.Atoi(string(ch))
 			if count > 0 {
-				test = strings.Repeat(previoseLetter, count)
-				result = result + test
+				result += strings.Repeat(previoseLetter, count)
 			}
 			previoseLetter = ""
 		} else {
 			if previoseLetter != "" {
-				result = result + previoseLetter
+				result += previoseLetter
 			}
 			previoseLetter = string(ch)
 		}
 	}
-	result = result + previoseLetter
+	result += previoseLetter
 	return result, nil
 }
