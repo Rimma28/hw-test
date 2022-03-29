@@ -7,18 +7,17 @@ import (
 
 // Top10 ...
 func Top10(text string) []string {
-
 	if text == "" {
 		return make([]string, 0)
 	}
 
 	var sortedStruct []keyValue
-	var result = make([]string, 10)
-	var dict = make(map[string]int)
+	result := make([]string, 10)
+	dict := make(map[string]int)
 
 	words := strings.Fields(text)
 	for _, ch := range words {
-		dict[ch] = dict[ch] + 1
+		dict[ch]++
 	}
 
 	for key, value := range dict {
