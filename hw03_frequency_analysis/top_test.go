@@ -80,3 +80,27 @@ func TestTop10(t *testing.T) {
 		}
 	})
 }
+
+func Test_sortStruct(t *testing.T) {
+	type args struct {
+		sortedStruct []keyValue
+	}
+
+	tests := []struct {
+		name     string
+		args     args
+		wantSort []keyValue
+	}{
+		{
+			"Test Case 1",
+			args{[]keyValue{{"test1", 1}, {"test4", 4}, {"test2", 2}, {"test3", 3}}},
+			[]keyValue{{"test4", 4}, {"test3", 3}, {"test2", 2}, {"test1", 1}},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			sortStruct(tt.args.sortedStruct)
+			require.Equal(t, tt.wantSort, tt.args.sortedStruct)
+		})
+	}
+}
