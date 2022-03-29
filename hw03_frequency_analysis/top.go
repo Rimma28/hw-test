@@ -10,8 +10,6 @@ func Top10(text string) []string {
 	if text == "" {
 		return make([]string, 0)
 	}
-
-	var sortedStruct []keyValue
 	result := make([]string, 10)
 	dict := make(map[string]int)
 
@@ -19,7 +17,7 @@ func Top10(text string) []string {
 	for _, ch := range words {
 		dict[ch]++
 	}
-
+	sortedStruct := make([]keyValue, 0, len(dict))
 	for key, value := range dict {
 		sortedStruct = append(sortedStruct, keyValue{key, value})
 	}
