@@ -8,9 +8,9 @@ import (
 // Top10 ...
 func Top10(text string) []string {
 	if text == "" {
-		return make([]string, 0)
+		return nil
 	}
-	result := make([]string, 10)
+	var result []string
 	dict := make(map[string]int)
 
 	words := strings.Fields(text)
@@ -23,11 +23,11 @@ func Top10(text string) []string {
 	}
 
 	sortStruct(sortedStruct)
-	for i := range sortedStruct {
+	for i := 0; i < len(sortedStruct) && i < 10; i++ {
 		if i == 10 {
 			break
 		}
-		result[i] = sortedStruct[i].Key
+		result = append(result, sortedStruct[i].Key)
 	}
 
 	return result
