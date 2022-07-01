@@ -19,11 +19,11 @@ func (t Task) Do() error {
 
 // Run starts tasks in n goroutines and stops its work when receiving m errors from tasks.
 func Run(tasks []Task, n, m int) error {
-	errorChan := make(chan error, 50)
 	if len(tasks) == 0 {
 		return ErrErrorsLimitExceeded
 	}
-	wg := sync.WaitGroup{}
+	errorChan := make(chan error, 50)
+	var wg sync.WaitGroup
 	i := 1
 	k := 1
 	for _, t := range tasks {
@@ -54,7 +54,7 @@ func runGoroutine(wg *sync.WaitGroup, t Task, errorChan chan error) chan error {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		err := t.Do()
+		err := t()
 		if err != nil {
 			errorChan <- err
 		}
