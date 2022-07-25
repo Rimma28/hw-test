@@ -1,4 +1,4 @@
-module github.com/rimma28/hw06_pipeline_execution
+module github.com/rimma28/hw-test/hw06_pipeline_execution
 
 go 1.16
 
