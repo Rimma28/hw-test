@@ -1,4 +1,4 @@
-module github.com/rimma28/hw08_envdir_tool
+module github.com/rimma28/hw-test/hw08_envdir_tool
 
 go 1.16
 
