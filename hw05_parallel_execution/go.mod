@@ -1,4 +1,4 @@
-module github.com/rimma28/hw05_parallel_execution
+module github.com/rimma28/hw-test/hw05_parallel_execution
 
 go 1.16
 

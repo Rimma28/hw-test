@@ -1,4 +1,4 @@
-module github.com/rimma28/hw04_lru_cache
+module github.com/rimma28/hw-test/hw04_lru_cache
 
 go 1.16
 
