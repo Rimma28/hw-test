@@ -1,4 +1,4 @@
-module github.com/rimma28/hw-test/hw07_file_copying
+module github.com/rimma28/hw07_file_copying
 
 go 1.16
 
